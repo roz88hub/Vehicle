@@ -73,14 +73,37 @@ public class VehicleClass {
 
 	
 	void compareDoor(VehicleClass doorMethod){
-		if(this.doorNum > doorMethod.doorNum ){
-			
+		if(this.doorNum > doorMethod.doorNum ){			
 			System.out.println(this.brand + " has more doors than " + doorMethod.brand);
-			
 		}
+		else if (this.doorNum == doorMethod.doorNum){
+			System.out.println(this.brand + " has same doors as " + doorMethod.brand);			
+		}
+		else{
+			System.out.println(this.brand + " has less than " + doorMethod.brand);
+		}
+			
 	}
 	
-
+	void oldNewCondition (VehicleClass checkMethod){
+		if(this.condition == true && checkMethod.condition == true ){			
+			System.out.println(this.brand + " is new as " + checkMethod.brand);
+		}
+		else if (this.condition == true && checkMethod.condition == false){
+			System.out.println(this.brand + " is newer than " + checkMethod.brand);			
+		}
+		else if (this.condition == false && checkMethod.condition == true){
+			System.out.println(checkMethod.brand + " is newer than " + this.brand);			
+		}
+		else{
+			System.out.println(this.brand + "  old as " + checkMethod.brand);
+		}
+			
+	}
+	
+	
+	
+	
 public static void main(String[] args){
 	
 	VehicleClass Corolla = new VehicleClass("Toyota", "Sedan", 4 , "White" , true);
@@ -90,7 +113,21 @@ public static void main(String[] args){
 	VehicleClass Huracán = new VehicleClass("Lamborghini");
 	 
 	
-	Corolla.compareDoor(Huracán);
+	Eclipse.compareDoor(Corolla);
+	Corolla.compareDoor(Accord);
+	F150.compareDoor(Huracán);
+	Eclipse.compareDoor(Huracán);
+	
+	System.out.println(Corolla.getColor());
+	Corolla.setColor("red");
+	System.out.println(Corolla.getColor());
+	
+	
+	Eclipse.oldNewCondition(Corolla);
+	Corolla.oldNewCondition(Accord);
+	Accord.oldNewCondition(Corolla);
+	F150.oldNewCondition(Accord);
+	Eclipse.oldNewCondition(Huracán);
 }
 
 }
